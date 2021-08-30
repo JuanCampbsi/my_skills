@@ -9,7 +9,7 @@ export default function home() {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <Text> React Native Hoje 30/08/2021 - feature/mobile - em casa </Text>
+        <Text> React Native Hoje 30/08/2021 - feature/home/-mobile</Text>
       </View>
 
       <Text style={{
