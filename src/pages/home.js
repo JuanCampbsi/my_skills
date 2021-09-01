@@ -7,7 +7,6 @@ export function home() {
       <View style={styles.container}>
         <Text style={styles.title}> Welcome, Juan Campos </Text>
         <TextInput style={styles.input}></TextInput>
-
       </View>
     </>
   )
@@ -19,8 +18,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 70,
     paddingHorizontal: 30
-
-
   },
   title: {
     color: '#fff',
