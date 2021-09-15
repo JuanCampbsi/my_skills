@@ -5,7 +5,7 @@ export function home() {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.title}> Welcome IOS, Juan Campos </Text>
+        <Text style={styles.title}> Welcome, Juan Campos </Text>
         <TextInput style={styles.input}></TextInput>
       </View>
     </>
@@ -14,7 +14,7 @@ export function home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#7e3de0',
+    backgroundColor: '#121015',
     paddingHorizontal: 20,
     paddingVertical: 70,
     paddingHorizontal: 30
