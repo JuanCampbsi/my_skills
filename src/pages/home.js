@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   View,
+  ScrollView,
   Text,
   StyleSheet,
   TextInput,
@@ -19,7 +20,7 @@ export function home() {
 
   return (
     <>
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.title}>
           Welcome, Juan Campos
         </Text>
@@ -60,7 +61,7 @@ export function home() {
         }
 
 
-      </View>
+      </ScrollView>
     </>
   )
 }
