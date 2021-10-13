@@ -5,8 +5,8 @@ import {
   StyleSheet
 } from 'react-native';
 
-export function Button({ onPress }) {
-  return (
+export function Button({ onPress }) {    
+    return (
     <TouchableOpacity
       style={styles.button}
       activeOpacity={.7}

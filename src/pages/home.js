@@ -6,7 +6,8 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Platform
+  Platform,
+  View
 } from 'react-native';
 
 
@@ -43,7 +44,7 @@ export default function Home() {
             <SkillCard key={skill} skill={skill} />
           ))
         }
-      </ScrollView>
+     </ScrollView>
     </>
   )
 }
