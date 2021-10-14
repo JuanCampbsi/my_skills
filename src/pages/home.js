@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import SkillCard from '../components/SkillCard';
 import Button from '../components/Button';
 import {
-  ScrollView,
+  View,
   Text,
   StyleSheet,
   TextInput,
   Platform,
-  _ScrollView
+  FlatList
 } from 'react-native';
 
 
@@ -19,10 +19,10 @@ export default function Home() {
     setMySkills(oldSate => [...oldSate, newSkill])
 
   }
+ 
   return (
     <>
-      <ScrollView style={styles.container}
-      onLayout={_ScrollView}>
+      <View style={styles.container}>
         <Text style={styles.title}>
           Welcome, Juan Campos
         </Text>
@@ -40,12 +40,16 @@ export default function Home() {
           My Skills
         </Text>
 
-        {
-          mySkills.map(skill => (
-            <SkillCard key={skill} skill={skill} />
-          ))
-        }
-     </ScrollView>
+        <FlatList 
+          data={mySkills}
+          keyExtractor={item => item}
+          renderItem={({item})=>(
+            <SkillCard skill={item} />
+          )}
+        
+        />
+     
+      </View>
     </>
   )
 }
