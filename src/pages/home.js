@@ -7,7 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Platform,
-  View
+  _ScrollView
 } from 'react-native';
 
 
@@ -21,7 +21,8 @@ export default function Home() {
   }
   return (
     <>
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container}
+      onLayout={_ScrollView}>
         <Text style={styles.title}>
           Welcome, Juan Campos
         </Text>
