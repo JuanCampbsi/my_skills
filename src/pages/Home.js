@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SkillCard from '../components/SkillCard';
 import Button from '../components/Button';
 import {
@@ -14,17 +14,35 @@ import {
 export default function Home() {
   const [newSkill, setNewSkill] = useState('');
   const [mySkills, setMySkills] = useState([]);
+  const [grettings, setGrettings] = useState(['']);
 
   function handleAddNewSkill() {
     setMySkills(oldSate => [...oldSate, newSkill])
 
   }
- 
+
+  useEffect(() => {
+    const currentHour = new Date().getHours();    
+    if ( currentHour < 12 ){
+      setGrettings('Good morning!')
+    }else if (currentHour >= 12 && currentHour < 18){
+      setGrettings('Good afternou!')
+    }else if (currentHour >= 18) {
+      setGrettings('Good evering')
+    }
+  }, [mySkills])
+
   return (
     <>
-      <View style={styles.container}>
-        <Text style={styles.title}>
+      <View 
+        style={styles.container}>
+        <Text 
+          style={styles.title}>
           Welcome, Juan Campos
+        </Text>
+
+        <Text style={styles.grettings}>
+          { grettings }
         </Text>
 
         <TextInput
@@ -40,15 +58,13 @@ export default function Home() {
           My Skills
         </Text>
 
-        <FlatList 
+        <FlatList
           data={mySkills}
           keyExtractor={item => item}
-          renderItem={({item})=>(
+          renderItem={({ item }) => (
             <SkillCard skill={item} />
           )}
-        
         />
-     
       </View>
     </>
   )
@@ -73,6 +89,9 @@ const styles = StyleSheet.create({
     padding: Platform.OS === 'ios' ? 15 : 10,
     marginTop: Platform.OS === 'ios' ? 30 : 20,
     borderRadius: 7
+  },
+  grettings: {
+    color: '#FFF'
   }
 })
 
