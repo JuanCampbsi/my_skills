@@ -24,13 +24,15 @@ export default function Home() {
   useEffect(() => {
     const currentHour = new Date().getHours();    
     if ( currentHour < 12 ){
-      setGrettings('Good morning!')
-    }else if (currentHour >= 12 && currentHour < 18){
-      setGrettings('Good afternou!')
-    }else if (currentHour >= 18) {
-      setGrettings('Good evering')
+      setGrettings('Good morning');
     }
-  }, [mySkills])
+    else if (currentHour >= 12 && currentHour < 18){
+      setGrettings('Good afternoon');
+    }
+    else {
+      setGrettings('Good night');
+    }
+  }, [])
 
   return (
     <>
