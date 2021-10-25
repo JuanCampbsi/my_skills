@@ -10,14 +10,25 @@ import {
   FlatList
 } from 'react-native';
 
+interface SkillData {
+  id: string;
+  name: string;
+  
+}
+
 
 export default function Home() {
   const [newSkill, setNewSkill] = useState('');
-  const [mySkills, setMySkills] = useState([]);
+  const [mySkills, setMySkills] = useState<SkillData[]>([]);
   const [grettings, setGrettings] = useState(['']);
 
   function handleAddNewSkill() {
-    setMySkills(oldSate => [...oldSate, newSkill])
+    const data ={
+      id: String(new Date().getTime()),
+      name: newSkill
+    }
+
+    setMySkills(oldSate => [...oldSate, data])
 
   }
 
@@ -62,9 +73,9 @@ export default function Home() {
 
         <FlatList
           data={mySkills}
-          keyExtractor={item => item}
+          keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <SkillCard skill={item} />
+            <SkillCard skill={item.name} />
           )}
         />
       </View>
@@ -75,7 +86,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#39333d',
-    paddingHorizontal: 20,
     paddingVertical: 70,
     paddingHorizontal: 30
   },
