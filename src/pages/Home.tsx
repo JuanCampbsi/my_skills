@@ -13,17 +13,16 @@ import {
 interface SkillData {
   id: string;
   name: string;
-  
 }
 
 
 export default function Home() {
   const [newSkill, setNewSkill] = useState('');
   const [mySkills, setMySkills] = useState<SkillData[]>([]);
-  const [grettings, setGrettings] = useState(['']);
+  const [grettings, setGrettings] = useState('');
 
   function handleAddNewSkill() {
-    const data ={
+    const data = {
       id: String(new Date().getTime()),
       name: newSkill
     }
@@ -33,11 +32,11 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const currentHour = new Date().getHours();    
-    if ( currentHour < 12 ){
+    const currentHour = new Date().getHours();
+    if (currentHour < 12) {
       setGrettings('Good morning');
     }
-    else if (currentHour >= 12 && currentHour < 18){
+    else if (currentHour >= 12 && currentHour < 18) {
       setGrettings('Good afternoon');
     }
     else {
@@ -47,15 +46,15 @@ export default function Home() {
 
   return (
     <>
-      <View 
+      <View
         style={styles.container}>
-        <Text 
+        <Text
           style={styles.title}>
           Welcome, Juan Campos
         </Text>
 
         <Text style={styles.grettings}>
-          { grettings }
+          {grettings}
         </Text>
 
         <TextInput
@@ -65,7 +64,12 @@ export default function Home() {
           onChangeText={setNewSkill}
         />
 
-        <Button onPress={handleAddNewSkill} />
+        <Button
+          onPress={handleAddNewSkill}
+          title="Add" 
+          activeOpacity={.7}         
+        />
+        
 
         <Text style={[styles.title, { marginVertical: 50 }]}>
           My Skills
